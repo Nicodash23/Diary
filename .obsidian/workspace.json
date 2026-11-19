@@ -22,24 +22,52 @@
             }
           },
           {
-            "id": "32fea08bff658f48",
+            "id": "e9478ed59ad8d3de",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "Architettura.canvas",
                 "viewState": {
-                  "x": 0,
-                  "y": 0,
+                  "x": -30,
+                  "y": -60,
                   "zoom": 0
                 }
               },
               "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "title": "Architettura"
+            }
+          },
+          {
+            "id": "7577b7cf2df2f8b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/19-11-2026.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "19-11-2026"
+            }
+          },
+          {
+            "id": "739ff20ba96eac11",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Deliverables/Modulo 1- Docker.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Modulo 1- Docker"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -206,16 +234,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "32fea08bff658f48",
+  "active": "7577b7cf2df2f8b7",
   "lastOpenFiles": [
+    "Deliverables/DiagrammaModulo1.canvas",
+    "Notes/19-11-2026.md",
+    "Deliverables/DiagrammaModulo1.png",
     "Deliverables/Modulo 1- Docker.md",
-    "Untitled.canvas",
+    "Architettura.canvas",
     "Notes/18-11-2026.md",
+    "Notes/TemplateDaily.md",
     "Odoo.md",
     "Deliverables",
-    "Architettura.canvas",
     "Diario.md",
-    "Notes/TemplateDaily.md",
     "Notes",
     "Untitled.md",
     "Welcome.md"

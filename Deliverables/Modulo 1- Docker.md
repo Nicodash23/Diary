@@ -16,9 +16,10 @@ Per implementare la persistenza si utilizzano volumes o bindmount. La differenza
  
 ### Networking
 
- Networks. Esistono vari driver di rete che si comportano diversamente. 
+Esistono vari driver di rete che si comportano diversamente. 
 
 - Bridge:
+ 
  Ogni container vede come collegata la sua porta ethernet su uno switch virtuale(bridge), si collegano all'host passando per un nat vituale. 
  
 E' possibile raggiungere i container usando il loro nome, siccome docker crea un servizio dns interno.
@@ -26,7 +27,22 @@ E' possibile raggiungere i container usando il loro nome, siccome docker crea un
 Un container su rete bridge non è raggiungibile dall’esterno finché non pubblichi una porta, tuttavia a volte questo bypassa il firewall in esecuzione sull'host. 
 
 - Host:
-I container condividono lo stack di rete del'host, performance massime siccome nessuna isolazione, solitamente si preferisce bridge. 
+
+I container condividono lo stack di rete del'host, performance massime siccome nessuna vitualizzazione, solitamente si preferisce bridge. 
 
 - None: completamente isolati
-  
+
+
+## Domande verifica 
+
+Un'immagine è a tutti gli effetti l'unione dei file che compongono il container.
+
+Perchè il database richiede persistenza dei dati, salvando questi dati nei writable layers al momento  in cui rimuoviamo un container per aggiornare un config perderemmo tutti i dati. 
+
+Un servizio in compose può raggiunger un altro servizio per nome siccome compose avvia un servizio dns interno a docker. Questo servizio associa l'ip all'interno della docker network al nome del container, tuttavia rende disponibile questo indirizzo solo per i container facenti parte delle stesse reti.
+
+Fermando un container ne si arresta l'esecuzione ma nessun file del ocntainer viene cancellato.
+Rimuovendo un container vengono eliminati i writable layers ed i metadati: enviroment, port binds.
+Rimuovendo un volume si ha una perdita di dati persistenti.
+
+Perchè aggiungere un utente al gruppo docker equivale a conferire permissi di root senza password sulla host machine. 

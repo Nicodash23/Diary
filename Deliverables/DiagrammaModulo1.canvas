@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"5085a57dc49de916","type":"group","x":-680,"y":-580,"width":460,"height":820,"label":"Disco"},
+		{"id":"112eceb64733e75c","type":"group","x":267,"y":-600,"width":400,"height":840,"label":"Docker engine"},
+		{"id":"defa2af82ee3ddea","type":"text","text":"## Volumi","x":-560,"y":-140,"width":250,"height":60},
+		{"id":"7dadeeb1a96cdcb0","type":"text","text":"## Immagine\n- Read Only Layer\n- Metadata\n- Writable","x":-560,"y":-382,"width":260,"height":172},
+		{"id":"1e64411a3d325bdb","type":"text","text":"## Bridge","x":515,"y":-432,"width":146,"height":50},
+		{"id":"74134ea9eb00bcd4","type":"text","text":"## Interfaccia rete host","x":370,"y":-800,"width":280,"height":50},
+		{"id":"48a595f22a96f665","type":"text","text":"## Container","x":265,"y":-200,"width":250,"height":60},
+		{"id":"2f3e85c6d79f8773","type":"text","text":"## NAT","x":526,"y":-560,"width":124,"height":50}
+	],
+	"edges":[
+		{"id":"ea8225d2135a3e6a","fromNode":"48a595f22a96f665","fromSide":"bottom","toNode":"defa2af82ee3ddea","toSide":"right"},
+		{"id":"7cb8704699954d27","fromNode":"7dadeeb1a96cdcb0","fromSide":"right","toNode":"48a595f22a96f665","toSide":"left","label":"Esecuzione"},
+		{"id":"e5af7cbb7638952d","fromNode":"1e64411a3d325bdb","fromSide":"top","toNode":"2f3e85c6d79f8773","toSide":"bottom","fromEnd":"arrow"},
+		{"id":"d87378af016c2830","fromNode":"2f3e85c6d79f8773","fromSide":"top","toNode":"74134ea9eb00bcd4","toSide":"bottom","fromEnd":"arrow"},
+		{"id":"bf319e9ad1862960","fromNode":"48a595f22a96f665","fromSide":"right","toNode":"1e64411a3d325bdb","toSide":"bottom","label":"eth0"}
+	]
+}
