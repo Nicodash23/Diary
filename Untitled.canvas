@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"48f315c7d99cf1fd","type":"group","x":-1080,"y":-920,"width":1560,"height":1440,"label":"Odoo"},
+		{"id":"38f42af3e336c292","type":"group","x":-740,"y":-920,"width":1220,"height":1040,"color":"3","label":"Module"},
+		{"id":"cf2270c6bd3b4bb5","type":"text","text":"Presentation Layer","x":-1080,"y":-920,"width":250,"height":60},
+		{"id":"bdc0ff9190785aa6","type":"text","text":"Business Logic Layer","x":-1080,"y":-500,"width":250,"height":60},
+		{"id":"ed41daeefc72ae61","type":"text","text":"ORM ","x":-340,"y":60,"width":125,"height":60},
+		{"id":"aa8d8b9f4ca01c84","type":"text","text":"Database","x":-342,"y":357,"width":127,"height":60},
+		{"id":"fc2edd2d073f7357","type":"text","text":"Database Layer","x":-1080,"y":200,"width":250,"height":60},
+		{"id":"04c40f20c0b7eb76","x":-740,"y":-744,"width":250,"height":200,"type":"text","text":"## Data Folder\nCartella relativa ai file che importano dati nel modulo.\nOgni file necessata una entry nella data: list in manifest.py"},
+		{"id":"daa710b703d7a12b","x":-700,"y":-544,"width":265,"height":86,"type":"text","text":"### view\ncartella viste dei dati"},
+		{"id":"41e1bc2fafc46c60","x":-700,"y":-458,"width":265,"height":74,"type":"text","text":"### security\ncartella dati relativi a sicurezza"},
+		{"id":"8c8f2d9203f8859c","x":-240,"y":-890,"width":250,"height":118,"type":"text","text":"I vari file xml utilizzati per definire componenti ui o viste dei dati"},
+		{"id":"f146cd061195ae0e","x":240,"y":-920,"width":250,"height":205,"type":"text","text":"## Manifest.py\nQuesto file contiene un dict all'interno del quale sono definiti i vari metadati del modulo"},
+		{"id":"ae504cba9d7a0fc0","x":-740,"y":-160,"width":250,"height":140,"type":"text","text":"## Models Folder\nIn questa cartella sono contenuti i file"}
+	],
+	"edges":[
+		{"id":"261a315b13f0e419","fromNode":"ed41daeefc72ae61","fromSide":"bottom","toNode":"fc2edd2d073f7357","toSide":"right","fromEnd":"arrow"},
+		{"id":"acc0479f5fab5f46","fromNode":"fc2edd2d073f7357","fromSide":"bottom","toNode":"aa8d8b9f4ca01c84","toSide":"left","fromEnd":"arrow"},
+		{"id":"b205d9fa74a3ce72","fromNode":"daa710b703d7a12b","fromSide":"right","toNode":"8c8f2d9203f8859c","toSide":"left"}
+	]
+}
