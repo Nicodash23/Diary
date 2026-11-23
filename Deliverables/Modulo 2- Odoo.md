@@ -1,3 +1,55 @@
+## Guasti riscontrati
+
+18-11
+### Error: Database is uninitialized and superuser password is not specified.
+Fix: set superuser password correctly into .env
+
+20-11
+### Error: Database connection failure: could not translate host name "db" to address: Name or service not known
+
+Fix ipotizzata: il nameserver ora trova il container db sul nome database, ho aggiornato .env e compose, tuttavia sospetto il problema sia odoo.conf che sovrascrive le variabili d'ambiente.
+ 
+ Come ipotizzato trovate le seguenti linee in odoo.conf:
+ db_host = db
+
+db_port = 5432
+
+db_user = odoo
+Eliminate, preferisco passare queste varibili dal file .env del docker compose.
+
+
+### browser non riceve risposta da odoo
+2026-11-20 10:54:34,971 
+ INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8069
+
+Sospetto erronea configurazione della rete.
+
+La rete era configurata correttamente.
+ 
+Fix: siccome ho passato odoo.conf come bindmount il container ha riscritto l'intero .cfg di default, nella versione da me passata avevo omesso la riga http_interface = 0.0.0.0, ed aveva defaultato a 127.0.0.1, quindi il container ascoltava solo sul container stesso al posto di ascoltare da tutte le interfacce. 
+
+
+## Procedura Backup e ripristino
+
+### Backup
+Per effettuare un backup basta salvare la cartella Data ed il file .env presente nella cartella Docker su una macchina diversa dall'host e possibilmente collocata in un altro edificio.
+Essa contiene tutti i dati persistenti relativi al database ed ad odoo. 
+### Ripristino 
+
+Nella cartella Docker eseguire:
+
+docker compose down 
+
+Ciò fermerà i container. 
+
+Passiamo a riconfigurare il .env, selzionare la versione rispettiva al backup e sostituirla nella cartella Docker.
+
+Impostare la variabile:
+BASEPATH= 
+Alla directory contenente il backup da ripristinare.
+
+Eseguendo nella cartella Docker: docker compose up -d il servizio tornerà online allo stato ripristinato 
+
 ## Checklist scoperte 
 ### Tag e immagini
 20 e 20.0 indicano la stessa versione, i tag con il timestamp sono una build creata in quella data della versione specificata. Latest seleziona sempre l'ultima release disponibile tuttavia una nuova versione potrebbe rompere compatibilità. 
@@ -64,7 +116,7 @@ Come ipotizzato runnando printenv sui container le variabili non sono state aggi
 
 Answer- Odoo non si avvia, dai log compare auth faild for user(dbusername) odoo prova a riconnettersi al db 65 volte prima di andare in errore.
 
-## cosa è il filestore? 
+### cosa è il filestore? 
 Il filestore è la directory dove odoo salva i file. nel databse sono presenti solo i dati strutturati.
 è la tipica implementazione siccome è spesso inutile caricare file direttamente nel database, appesantirebbero solo le query ed il db.  
 
